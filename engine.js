@@ -26,8 +26,7 @@ var QuizWiz = function(config) {
         'ma_correct' : 'disabled',
         'ma_difference' : 'disabled',
         'fill_in_blanks' : 'disabled',
-        'dropdowns' : 'disabled',
-        'exam_2': 'enabled'
+        'dropdowns' : 'disabled'
       },
       // Speed enhancements may be true or false
       'autoExpandComments' : true,
@@ -834,36 +833,6 @@ var QuizWiz = function(config) {
       }, 
       
       
-      //123456
-      'exam_2' : {
-        'desc' : 'Custom Exam 2 grading',
-        'text' : 'Exam 2',
-        'type' : 'multiple_answers_question',
-        'allowUpdate' : true,
-        'enabled' : true,
-        'conflicts' : [ 'ma_correct', 'ma_difference', 'ma_bestdiff', 'ma_canvas', ],
-        'check' : function(e) {
-          var valid = false;
-          if (e.classList.contains(this.type)) {
-            var calc = this.rightwrong(e);
-            if (Math.abs(calc.full - calc.current) > 0.005) {
-              valid = true;
-            }
-          }
-          if (valid) {
-            this.contains = true;
-          }
-          return valid;
-        },
-        'apply' : function(e) {
-          if (this.check(e)) {
-            var calc = this.rightwrong(e);
-            this.update(e, calc.count_correct);
-          }
-        }
-      },
-      
-      
       
       
       'ma_allnone' : {
@@ -889,7 +858,7 @@ var QuizWiz = function(config) {
         'apply' : function(e) {
           if (this.check(e)) {
             var calc = this.rightwrong(e);
-            this.update(e, calc.full);
+            this.update(e, calc.count_correct);
           }
         }
       },
