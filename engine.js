@@ -26,7 +26,8 @@ var QuizWiz = function(config) {
         'ma_correct' : 'disabled',
         'ma_difference' : 'disabled',
         'fill_in_blanks' : 'disabled',
-        'dropdowns' : 'disabled'
+        'dropdowns' : 'disabled',
+        'exam_2': 'enabled'
       },
       // Speed enhancements may be true or false
       'autoExpandComments' : true,
